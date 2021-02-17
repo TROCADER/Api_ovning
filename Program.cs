@@ -8,7 +8,17 @@ namespace Api_ovning
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RestClient client = new RestClient("https://pokeapi.co/api/v2/");
+
+            RestRequest request = new RestRequest("pokemon/blastoise");
+
+            IRestResponse response = client.Get(request);
+
+            Pokemon blastoise = JsonConvert.DeserializeObject<Pokemon>(response.Content);
+
+            System.Console.WriteLine(blastoise.height);
+
+            Console.ReadLine();
         }
     }
 }
