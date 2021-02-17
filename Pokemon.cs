@@ -7,19 +7,21 @@ namespace Api_ovning
     public class Pokemon
     {
         public string name;
-        public int height;
-        public int weight;
+        public string height;
+        public string weight;
 
-        public List<int> ints = new List<int>();
+        public List<string> pokemonInfo = new List<string>();
 
         public void PokemonMethod()
         {
-            ints.Add(height);
-            ints.Add(weight);
-
-            for (int i = 0; i < ints.Count; i++)
+            pokemonInfo.Add("Name: " + name);
+            pokemonInfo.Add("Height: " + weight);
+            pokemonInfo.Add("Weight: " + weight);
+            
+            System.Console.WriteLine();
+            for (int i = 0; i < pokemonInfo.Count; i++)
             {
-                System.Console.WriteLine(ints[i]);
+                System.Console.WriteLine(pokemonInfo[i]);
             }
         }
     }

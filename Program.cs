@@ -9,14 +9,24 @@ namespace Api_ovning
         static void Main(string[] args)
         {
             RestClient client = new RestClient("https://pokeapi.co/api/v2/");
+            
+            System.Console.WriteLine("Which pokeon do you want to see information about?");
+            System.Console.WriteLine("Please enter a valid pokemon's name or ID");
+            
+            string userPokemon = Console.ReadLine().Trim();
+            while (userPokemon == "")
+            {
+                System.Console.WriteLine("Please enter a valid pokemon's name or ID");
+                userPokemon = Console.ReadLine().Trim();
+            }
 
-            RestRequest request = new RestRequest("pokemon/blastoise");
+            RestRequest request = new RestRequest("pokemon/" + userPokemon);
 
             IRestResponse response = client.Get(request);
 
-            Pokemon blastoise = JsonConvert.DeserializeObject<Pokemon>(response.Content);
+            Pokemon pokemon = JsonConvert.DeserializeObject<Pokemon>(response.Content);
 
-            blastoise.PokemonMethod();
+            pokemon.PokemonMethod();
 
             Console.ReadLine();
         }
