@@ -16,7 +16,7 @@ namespace Api_ovning
 
             Pokemon blastoise = JsonConvert.DeserializeObject<Pokemon>(response.Content);
 
-            System.Console.WriteLine(blastoise.height);
+            blastoise.PokemonMethod();
 
             Console.ReadLine();
         }
