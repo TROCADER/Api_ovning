@@ -12,7 +12,7 @@ namespace Api_ovning
 
             while (true)
             {
-                System.Console.WriteLine("\n\nWhich pokeon do you want to see information about?");
+                System.Console.WriteLine("\nWhich pokeon do you want to see information about?");
                 System.Console.WriteLine("Please enter a valid pokemon's name or ID");
 
                 // Hämtar informationen från api:et
@@ -33,6 +33,7 @@ namespace Api_ovning
 
                 Pokemon pokemon = JsonConvert.DeserializeObject<Pokemon>(response.Content);
 
+                Console.Clear();
                 pokemon.GetPokemon();
 
                 System.Console.WriteLine("\n\nPress ESCAPE to quit\nOr any other key to continue");
