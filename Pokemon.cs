@@ -1,6 +1,6 @@
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Api_ovning
 {
@@ -9,6 +9,8 @@ namespace Api_ovning
         private string name;
         private float height;
         private int weight;
+
+        private int baseExperience;
 
         public string Name
         {
@@ -46,6 +48,17 @@ namespace Api_ovning
             }
         }
 
+        [JsonProperty("base_experience")]
+        public int BaseExperience
+        {
+            set{
+                baseExperience = value;
+            }
+            get{
+                return baseExperience;
+            }
+        }
+
         // public string name {set; get;}
         // public float height {set; get;}
         // public int Weight {set; get;}
@@ -57,9 +70,10 @@ namespace Api_ovning
             // Fyller på listan med alla värden
             name = UppercaseFirst(name);
             height = height / 10;
-            pokemonInfo.Add("name: " + name);
-            pokemonInfo.Add("height: " + height + "m");
-            pokemonInfo.Add("Weight: " + weight + "kg");
+            pokemonInfo.Add("Name:            " + name);
+            pokemonInfo.Add("Height:          " + height + "m");
+            pokemonInfo.Add("Weight:          " + weight + "kg");
+            pokemonInfo.Add("Base experience: " + baseExperience + "xp");
 
             // Skriver ut alla värden
             System.Console.WriteLine();
